@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | Peaks and Professors UW</title>
+  <meta name="description" content="Upcoming hikes and events from Peaks and Professors UW.">
+  <meta property="og:title" content="Events | Peaks and Professors UW">
+  <meta property="og:description" content="Upcoming hikes and events from Peaks and Professors UW.">
+  <meta property="og:image" content="images/logo.png">
+  <link rel="icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ===== MENU (same on every page) ===== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="images/logo.png" alt="">Peaks &amp; Professors</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html" aria-current="page">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-title">
+      <div class="wrap">
+        <h1>Events</h1>
+        <p>Hikes, Peaks x Plungers, thrift pop-ups, workshops, and collabs with other clubs. Everything we have coming up is on this calendar.</p>
+      </div>
+      <svg class="ridge" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,70 L0,50 L90,32 L150,44 L240,14 L310,40 L380,28 L460,52 L540,22 L600,6 L660,30 L740,20 L820,46 L900,26 L980,38 L1060,16 L1130,36 L1200,24 L1200,70 Z"/></svg>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <!-- The calendar loads automatically once its ID is added in js/config.js -->
+        <div id="calendar" class="todo">
+          <strong>The Google Calendar will appear here.</strong> Add the club calendar's ID in <code>js/config.js</code> to turn it on.
+          In the meantime, upcoming events are posted on <a href="https://www.instagram.com/peaksandprofessorsuw/">Instagram</a>.
+        </div>
+        <p style="margin-top:16px">Click any event to see details and its sign-up link.
+          Want to hear about new events first? <a href="https://mailman11.u.washington.edu/mailman/listinfo/peaksandprofessorsuw">Join the mailing list</a>.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="read">
+          <h2>How to sign up</h2>
+          <ol class="steps">
+            <li><p>Find a hike or event you're excited about, on this calendar, in our emails, or on Instagram.</p></li>
+            <li><p>Open the sign-up link and fill out the Google Form. If the form is closed, the trip and its waitlist are full.</p></li>
+            <li><p>Within a few days your trip lead will email you. Pay the small gas fee and reply within 24 hours to lock in your spot. If you're waitlisted, hang tight: we often get through a good part of the list.</p></li>
+            <li><p>A few days before, you'll get a reminder with the meeting time, location, and what to expect.</p></li>
+            <li><p>Show up ready to get outside and have great conversations with students and professors.</p></li>
+          </ol>
+          <p style="margin-top:20px">First time hiking with us? Check the <a href="faq.html#gear">gear checklist</a>.</p>
+        </div>
+        <img src="images/trail-1.jpg" alt="Hikers on a forest trail">
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <p style="margin:0"><b style="color:#fff">Peaks and Professors</b> &middot; Registered Student Organization of the University of Washington</p>
+      </div>
+      <div class="socials">
+        <a href="mailto:peaksandprofessorsuw@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>peaksandprofessorsuw@gmail.com</a>
+        <a href="https://www.instagram.com/peaksandprofessorsuw/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@peaksandprofessorsuw</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
