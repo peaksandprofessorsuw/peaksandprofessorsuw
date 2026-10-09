@@ -1,0 +1,215 @@
+/* Peaks and Professors UW — site styles
+   Colors live here. Change a value once and it updates everywhere. */
+:root {
+  --fog: #EEF1EE;      /* page background */
+  --snow: #FFFFFF;     /* panels */
+  --fir: #17352A;      /* text, header */
+  --fir-soft: #3E5A4E; /* secondary text */
+  --lake: #2B6B70;     /* buttons and links */
+  --lake-dark: #1F5357;
+  --moss: #7E9C5F;     /* checkmarks, small accents */
+  --line: #D3DBD5;     /* borders */
+  --radius: 10px;
+  --max: 1080px;
+  --read: 68ch;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--fog);
+  color: var(--fir);
+  font-family: "Public Sans", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", "Public Sans", sans-serif;
+  line-height: 1.15;
+  margin: 0 0 .5em;
+}
+h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; letter-spacing: -.02em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; letter-spacing: -.01em; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p { margin: 0 0 1em; }
+a { color: var(--lake); text-underline-offset: 3px; }
+a:hover { color: var(--lake-dark); }
+img { max-width: 100%; display: block; }
+
+:focus-visible { outline: 3px solid var(--lake); outline-offset: 3px; border-radius: 4px; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 16px; background: var(--snow); padding: .5em 1em; z-index: 10; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+.read { max-width: var(--read); }
+
+/* ---------- Header / menu ---------- */
+.site-header { background: var(--fir); color: var(--snow); }
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; min-height: 72px;
+}
+.brand { display: flex; align-items: center; gap: 10px; color: var(--snow); text-decoration: none; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.1rem; }
+.brand img { height: 44px; width: auto; background: var(--snow); border-radius: 6px; padding: 2px 6px; }
+.nav-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,.4); color: var(--snow); border-radius: 6px; padding: 6px 12px; font: inherit; cursor: pointer; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; }
+.nav a { color: var(--snow); text-decoration: none; padding: 8px 12px; border-radius: 6px; display: block; }
+.nav a:hover { background: rgba(255,255,255,.1); color: var(--snow); }
+.nav a[aria-current="page"] { background: rgba(255,255,255,.16); }
+
+@media (max-width: 760px) {
+  .nav-toggle { display: block; }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 72px; background: var(--fir); padding: 8px 20px 16px; z-index: 5; }
+  .nav.open { display: block; }
+  .nav ul { flex-direction: column; }
+  .site-header { position: relative; }
+}
+
+/* ---------- Page title with ridgeline ---------- */
+.page-title { background: var(--fir); color: var(--snow); padding: 48px 0 0; }
+.page-title p { color: #CFDCD4; max-width: var(--read); font-size: 1.15rem; }
+.ridge { display: block; width: 100%; height: 70px; margin-top: 24px; }
+.ridge path { fill: var(--fog); }
+
+/* ---------- Home hero ---------- */
+.hero {
+  position: relative; color: var(--snow);
+  background: var(--fir) url("../images/hero.jpg") center 40% / cover no-repeat;
+}
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,53,42,.55), rgba(23,53,42,.8)); }
+.hero .wrap { position: relative; padding-top: 96px; padding-bottom: 24px; }
+.hero h1 { font-size: clamp(3rem, 10vw, 6.5rem); margin-bottom: .2em; }
+.hero p { max-width: 56ch; font-size: 1.2rem; color: #E4ECE7; }
+.hero .ridge { position: relative; }
+
+/* ---------- Buttons ---------- */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 999px; font-weight: 600;
+  text-decoration: none; border: 2px solid transparent;
+}
+.btn-primary { background: var(--lake); color: var(--snow); }
+.btn-primary:hover { background: var(--lake-dark); color: var(--snow); }
+.btn-ghost { border-color: currentColor; color: var(--snow); }
+.btn-ghost:hover { background: rgba(255,255,255,.12); color: var(--snow); }
+.btn-outline { border-color: var(--lake); color: var(--lake); }
+.btn-outline:hover { background: var(--lake); color: var(--snow); }
+.btn svg { width: 20px; height: 20px; }
+
+/* ---------- Sections ---------- */
+section { padding: 56px 0; }
+section + section { padding-top: 16px; }
+.panel { background: var(--snow); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+.split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.split img { border-radius: var(--radius); aspect-ratio: 4/3; object-fit: cover; width: 100%; background: var(--line); }
+@media (max-width: 760px) { .split { grid-template-columns: 1fr; gap: 24px; } }
+
+.lede { font-size: 1.2rem; }
+
+/* Placeholder box: clearly marks spots that still need real content */
+.todo {
+  border: 2px dashed var(--moss); border-radius: var(--radius);
+  background: #F6F9F3; padding: 24px; color: var(--fir-soft);
+}
+.todo strong { color: var(--fir); }
+
+/* ---------- Calendar ---------- */
+.calendar-frame { width: 100%; height: 640px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--snow); }
+@media (max-width: 600px) { .calendar-frame { height: 520px; } }
+
+/* ---------- Steps (real sequence, so numbered) ---------- */
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: 16px; }
+.steps li { counter-increment: step; position: relative; padding-left: 52px; }
+.steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--fir); color: var(--snow);
+  display: grid; place-items: center; font-weight: 700;
+}
+.steps p { margin: 0; }
+
+/* ---------- Photo strip ---------- */
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.photos img { aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); width: 100%; background: var(--line); }
+@media (max-width: 600px) { .photos { grid-template-columns: 1fr 1fr; } .photos img:last-child { display: none; } }
+
+/* ---------- Reviews ---------- */
+.reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.review { margin: 0; padding: 24px; background: var(--snow); border-left: 4px solid var(--moss); border-radius: 0 var(--radius) var(--radius) 0; }
+.review blockquote { margin: 0 0 16px; font-size: 1.1rem; }
+.review figcaption { font-size: .95rem; color: var(--fir-soft); }
+.review figcaption b { color: var(--fir); display: block; }
+
+/* ---------- Team ---------- */
+.roster { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 24px 20px; }
+.person { text-align: center; }
+.person .avatar {
+  width: 120px; height: 120px; margin: 0 auto 10px; border-radius: 50%;
+  object-fit: cover; background: var(--fir); color: var(--snow);
+  display: grid; place-items: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-size: 2rem; font-weight: 700;
+}
+.person b { display: block; }
+.person span { color: var(--fir-soft); font-size: .95rem; }
+.alumni { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.alumni h3 { margin-bottom: .3em; }
+.alumni p { color: var(--fir-soft); }
+
+/* ---------- FAQ ---------- */
+.faq details { background: var(--snow); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; }
+.faq summary { cursor: pointer; padding: 16px 20px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--lake); }
+.faq details[open] summary::after { content: "–"; }
+.faq details > div { padding: 0 20px 16px; }
+
+/* ---------- Gear checklist ---------- */
+.gear { columns: 2 260px; column-gap: 32px; list-style: none; padding: 0; margin: 0 0 20px; }
+.gear li { break-inside: avoid; margin-bottom: 10px; }
+.gear label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.gear input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--moss); flex: none; }
+.gear small { display: block; color: var(--fir-soft); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--fir); color: #CFDCD4; padding: 40px 0; margin-top: 40px; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+.site-footer a { color: var(--snow); }
+.socials { display: flex; gap: 16px; align-items: center; }
+.socials a { display: inline-flex; align-items: center; gap: 6px; }
+.socials svg { width: 22px; height: 22px; }
+
+/* ---------- Print (for the gear checklist) ---------- */
+@media print {
+  .site-header, .site-footer, .page-title .ridge, .no-print { display: none !important; }
+  .page-title { background: none; color: #000; padding: 0; }
+  body { background: #fff; }
+  .panel { border: none; padding: 0; }
+}
+button.btn { background: none; font: inherit; cursor: pointer; }
+.review.todo { border-left: 4px solid var(--moss); }
+.socials { flex-wrap: wrap; }
+.socials a { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .roster { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
+  .person .avatar { width: 96px; height: 96px; font-size: 1.6rem; }
+}
+
+/* Reviews: masonry columns so long and short quotes pack neatly */
+.reviews { display: block; columns: 3 280px; column-gap: 20px; }
+.reviews .review { break-inside: avoid; margin: 0 0 20px; }
+.review blockquote { font-size: 1.02rem; }
+.more-reviews { margin-top: 8px; }
+.more-reviews > summary {
+  display: inline-block; cursor: pointer; list-style: none;
+  padding: 12px 20px; border-radius: 999px; border: 2px solid var(--lake);
+  color: var(--lake); font-weight: 600; margin-bottom: 20px;
+}
+.more-reviews > summary::-webkit-details-marker { display: none; }
+.more-reviews > summary:hover { background: var(--lake); color: var(--snow); }
+.more-reviews[open] > summary { display: none; }
