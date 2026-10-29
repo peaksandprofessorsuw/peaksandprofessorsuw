@@ -250,3 +250,37 @@ button.btn { background: none; font: inherit; cursor: pointer; }
   .glass { padding: 20px; border-radius: 14px; }
   .hero .wrap, .page-title.has-collage { padding-top: 64px; }
 }
+
+/* ---------- Team cards (clickable) ---------- */
+.members { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 28px 20px; }
+.member { display: block; text-align: center; text-decoration: none; color: var(--fir); border-radius: var(--radius); padding: 8px 4px; }
+.member b { display: block; margin-top: 10px; }
+.member span { color: var(--fir-soft); font-size: .95rem; }
+.member-photo {
+  width: 140px; height: 140px; margin: 0 auto; border-radius: 50%;
+  object-fit: cover; object-position: 50% 30%;
+  border: 4px solid var(--snow); box-shadow: 0 2px 10px rgba(23,53,42,.15);
+  transition: transform .2s ease;
+}
+.member:hover .member-photo { transform: scale(1.04); }
+.member:hover b { color: var(--lake); }
+.initials { background: var(--fir); color: var(--snow); display: grid; place-items: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 2.2rem; }
+@media (max-width: 600px) {
+  .members { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
+  .member-photo { width: 112px; height: 112px; }
+}
+@media (prefers-reduced-motion: reduce) { .member-photo { transition: none; } }
+
+/* ---------- Single profile page ---------- */
+.profile-section { padding-top: 56px; }
+.profile { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: 48px; align-items: start; }
+.profile-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 30%; border-radius: 16px; box-shadow: 0 10px 30px rgba(23,53,42,.18); }
+.profile-photo.initials { font-size: 5rem; }
+.profile-role { color: var(--lake); font-weight: 600; margin-bottom: .2em; }
+.profile-pronouns { color: var(--fir-soft); margin-top: -.3em; }
+.profile-bio { max-width: var(--read); margin: 20px 0 28px; font-size: 1.08rem; }
+.muted { color: var(--fir-soft); font-style: italic; }
+@media (max-width: 700px) { .profile { grid-template-columns: 1fr; gap: 24px; } .profile-photo { max-width: 340px; } }
+
+main { min-height: 60vh; }
